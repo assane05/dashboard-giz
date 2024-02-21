@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+:root {
+    --bg-primary: #fff;
+    --bg-secondary:  #c80f0f;
+    --bg-active: #fff;
+    --cl-text: #f6f4e6;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: "Poppins";
+}
+body {
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+nav{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: var(--bg-secondary);
+    transition: .5s;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+nav.active{
+    width: 300px;
+}
+nav ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+nav ul li {
+    list-style: none;
+    width: 100%;
+    position: relative;
+}
+nav ul li a:hover {
+    color: var(--bg-secondary);
+}
+nav ul li:hover a::before{
+    background-color: var(--bg-active);
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+nav ul li a{
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cl-text);
+    transition: .2s;
+}
+nav ul li a::before{
+   content: "";
+    position: absolute;
+   top: 0;
+   left: 0;
+   width: 0;
+   height: 100%;
+    transition: .2s;
+}
+nav ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 30px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+nav ul li a .icon *{
+    font-size: 1.1rem;
+}
+nav ul li a .title{
+    position: relative;
+    font-size: .85rem;
+}
+nav ul li a.toggle{
+    border-bottom: 3px solid var(--bg-primary);
+}
+.toggle{
+    cursor: pointer;
+}
+header{
+    display: none;
+}
+.fixing-after-header{
+    margin-top: 4.4rem;
+}
+
+@media only screen and (max-width: 768px){
+    header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 60px;
+        background-color: var(--bg-secondary);
+        color: var(--cl-text);
+    }
+    header a{
+        color: var(--cl-text);
+    }
+    nav{
+        left: -250px;
+    }
+    nav.active{
+        left:  0;
+        width: 40%;
+    }
+    nav ul li a.toggle{
+        display:  none;
+    }
+}
